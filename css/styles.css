@@ -15,6 +15,40 @@ img {
     display: none;
 }
 
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.container {
+    width: 960px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-wrapper {
+    display: flex;
+}
+
+.content-wrapper .sidebar {
+    width: 220px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    background-color: red;
+}
+
+.content-wrapper .content {
+    flex-grow: 1;
+    background-color: cyan;
+}
+
 /*Кнопки*/
 
 .btn {
@@ -73,6 +107,8 @@ img {
 
 .header {
     font-family: Cuprum, Arial, sans-serif;
+    background-color: #f4f7f9;
+    padding-bottom: 60px;
 }
 
 .header-topline {
@@ -80,18 +116,22 @@ img {
     color: #ffffff;
 }
 
+.header-topline .container {
+    display: flex;
+    height: 42px;
+}
+
 .main-logo {
     font-family: Cuprum, Arial, sans-serif;
     font-size: 24px;
-    line-height: 1;
+    line-height: 42px;
     color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
     background-color: #ee3643;
-    border-bottom: 5px #b52933 solid;
+    /*border-bottom: 5px #b52933 solid;*/
     display: block;
     width: 220px;
-    height: 47px;
     text-align: center;
 }
 
@@ -103,11 +143,18 @@ img {
 .header-search input {
     width: 270px;
     height: 42px;
-    background-color: transparent;
     border: none;
     color: #ffffff;
     font-family: Cuprum, Arial, sans-serif;
     font-size: 17px;
+    padding-left: 49px;
+    padding-right: 10px;
+
+    background-color: transparent;
+    background-image: url(../img/icon-search.png);
+    background-repeat: no-repeat;
+    background-size: 17px;
+    background-position: 17px 50%;
 }
 
 .header-search input::-webkit-input-placeholder {
@@ -124,20 +171,28 @@ img {
 
 .header-search input:hover {
     background-color: #212a3a;
+    background-image: url(../img/icon-search_white.png);
 }
 
 .header-search input:focus {
     background-color: #ffffff;
     color: #000000;
+    background-image: url(../img/icon-search_accent.png);
 }
 
 .header-link {
+    width: 150px;
     color: #ffffff;
     background-color: transparent;
     font-family: Cuprum, Arial, sans-serif;
     text-decoration: none;
     font-size: 17px;
+    line-height: 42px;
     border: none;
+    padding-left: 44px;
+
+    background-repeat: no-repeat;
+    background-position: 17px 50%;
 }
 
 .header-link:hover {
@@ -148,8 +203,28 @@ img {
     background-color: #161d29;
 }
 
+.header-link--bookmark {
+    background-image: url(../img/icon-bookmark.png);
+    background-size: 14px 16px;
+}
+
+.header-link--bookmark:hover {
+    background-image: url(../img/icon-bookmark_white.png);
+}
+
+.header-link--cart {
+    background-image: url(../img/icon-cart.png);
+    background-size: 15px;
+}
+
+.header-link--cart:hover {
+    background-image: url(../img/icon-cart_white.png);
+}
+
 .header-link--order {
     background-color: #63a63e;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .header-link--order:hover {
@@ -161,7 +236,7 @@ img {
 }
 
 .header-body {
-    background-color: #f4f7f9;
+    display: flex;
 }
 
 .header-slogan {
@@ -204,6 +279,12 @@ img {
 
 .header-nav ul {
     list-style: none;
+    display: flex;
+    padding-left: 0;
+}
+
+.header-nav li {
+    flex-grow: 1;
 }
 
 .header-nav a {
@@ -212,6 +293,12 @@ img {
     text-decoration: none;
     background-color: #32425c;
     border-bottom: 5px solid #293449;
+    height: 55px;
+    text-align: center;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header-nav a:hover {
@@ -388,4 +475,51 @@ img {
     font-size: 36px;
     color: #32425c;
     text-transform: uppercase;
+}
+
+/*Хлебные крошки*/
+
+.breadcrumbs {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    font-family: "PT Sans", Arial, sans-serif;
+}
+
+.breadcrumbs li {
+    text-transform: uppercase;
+    color: #000000;
+    font-size: 13px;
+    line-height: 1.4;
+    margin-right: 38px;
+}
+
+.breadcrumbs li:first-child {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbs li:first-child a {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    width: 14px;
+    height: 14px;
+    background-image: url(../img/icon-home.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.breadcrumbs li:last-child {
+    margin-right: 0;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.breadcrumbs a:hover {
+    opacity: .45;
 }
